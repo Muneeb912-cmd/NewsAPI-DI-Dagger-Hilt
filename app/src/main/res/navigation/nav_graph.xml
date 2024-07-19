@@ -7,5 +7,28 @@
     <fragment
         android:id="@+id/newsFragment"
         android:name="com.example.myapplication.ui.NewsFragment"
-        android:label="NewsFragment" />
+        android:label="NewsFragment" >
+        <action
+            android:id="@+id/action_newsFragment_to_newsDetails"
+            app:destination="@id/newsDetails"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" >
+            <argument
+                android:name="articleData"
+                app:argType="com.example.myapplication.repositories.Article"
+                app:nullable="true"/>
+        </action>
+        <argument
+            android:name="articleData"
+            app:argType="com.example.myapplication.repositories.Article" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetails"
+        android:name="com.example.myapplication.ui.NewsDetails"
+        android:label="fragment_news_details"
+        tools:layout="@layout/fragment_news_details" >
+        <argument
+            android:name="articleData"
+            app:argType="com.example.myapplication.repositories.Article" />
+    </fragment>
 </navigation>

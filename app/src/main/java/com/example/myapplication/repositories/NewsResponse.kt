@@ -6,35 +6,35 @@ import java.io.Serializable
 
 data class NewsResponse(
     @SerializedName("articles")
-    var articles: List<Article>,
+    var articles: List<Article>?,
     @SerializedName("status")
-    var status: String,
+    var status: String?,
     @SerializedName("totalResults")
-    var totalResults: Int
-):Serializable
+    var totalResults: Int?
+)
 
 data class Article(
     @SerializedName("author")
-    var author: String,
+    var author: String?,
     @SerializedName("content")
-    var content: String,
+    var content: String?,
     @SerializedName("description")
-    var description: String,
+    var description: String?,
     @SerializedName("publishedAt")
-    var publishedAt: String,
+    var publishedAt: String?,
     @SerializedName("source")
-    var source: Source,
+    var source: Source?,
     @SerializedName("title")
-    var title: String,
+    var title: String?,
     @SerializedName("url")
-    var url: String,
+    var url: String?,
     @SerializedName("urlToImage")
-    var urlToImage: String
-)
+    var urlToImage: String?
+):Serializable
 
 data class Source(
     @SerializedName("id")
-    var id: String,
+    var id: String?,
     @SerializedName("name")
-    var name: String
+    var name: String?
 )

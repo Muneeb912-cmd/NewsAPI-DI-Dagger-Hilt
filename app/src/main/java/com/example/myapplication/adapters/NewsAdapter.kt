@@ -17,7 +17,7 @@ class NewsAdapter(
 ) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     interface OnItemClickListener {
-        fun onButtonClick(title: String)
+        fun onButtonClick(articleData: Article)
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
@@ -35,7 +35,7 @@ class NewsAdapter(
             val position = adapterPosition
             if (position != RecyclerView.NO_POSITION) {
                 if (v == moreButton) {
-                    listener.onButtonClick(dataList[position].title)
+                    dataList[position].let { listener.onButtonClick(it) }
                 }
             }
         }
@@ -52,7 +52,7 @@ class NewsAdapter(
         holder.newsTitle.text = dataList[position].title
         holder.publishedAt.text = dataList[position].publishedAt
         holder.author.text = dataList[position].author
-        holder.id.text = dataList[position].source.id
+        holder.id.text = dataList[position].source?.id
         Glide.with(holder.imgViewer.context)
             .load(dataList[position].urlToImage)
             .into(holder.imgViewer)
